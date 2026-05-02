@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naveen Kumar Baskaran — AI Agent Engineer</title>
+  <meta name="description" content="AI Agent Engineer building production-grade LLM systems, MCP servers, and multi-agent orchestration frameworks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: #111111;
+      --bg-card-hover: #1a1a1a;
+      --text: #e4e4e7;
+      --text-muted: #71717a;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --border: #27272a;
+      --green: #22c55e;
+      --orange: #f97316;
+      --cyan: #06b6d4;
+      --pink: #ec4899;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--accent-light);
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .hero-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-outline:hover { border-color: var(--text-muted); background: var(--bg-card); }
+
+    /* Section */
+    section { padding: 60px 0; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-light);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 40px;
+    }
+
+    /* Tech stack */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .tech-item {
+      padding: 14px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .tech-item:hover { border-color: var(--accent); }
+
+    /* Projects */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .project-card h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .project-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--accent-light);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+
+    .tag-green { background: rgba(34, 197, 94, 0.1); color: var(--green); border-color: rgba(34, 197, 94, 0.2); }
+    .tag-orange { background: rgba(249, 115, 22, 0.1); color: var(--orange); border-color: rgba(249, 115, 22, 0.2); }
+    .tag-cyan { background: rgba(6, 182, 212, 0.1); color: var(--cyan); border-color: rgba(6, 182, 212, 0.2); }
+    .tag-pink { background: rgba(236, 72, 153, 0.1); color: var(--pink); border-color: rgba(236, 72, 153, 0.2); }
+
+    /* Articles */
+    .article-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .article-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+    .article-item:hover {
+      border-color: var(--accent);
+      background: var(--bg-card-hover);
+    }
+
+    .article-item h4 {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .article-item span {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    /* Stats */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 24px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .stat-num {
+      font-size: 36px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent-light), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--accent-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Divider */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .section-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">Open to opportunities</div>
+      <h1>Naveen Kumar Baskaran</h1>
+      <p>AI Agent Engineer building production-grade LLM systems, multi-agent orchestration, and MCP integrations for enterprise platforms.</p>
+      <div class="hero-links">
+        <a href="https://github.com/naveenkumarbaskaran" class="btn-primary" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://medium.com/@naveenkb142" class="btn-outline" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          Medium
+        </a>
+        <a href="https://linkedin.com/in/naveenkumarbaskaran" class="btn-outline" target="_blank">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Stats -->
+  <section>
+    <div class="container">
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-num">14</div>
+          <div class="stat-label">Open Source Repos</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">9+</div>
+          <div class="stat-label">Technical Articles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4</div>
+          <div class="stat-label">MCP Servers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years in Enterprise AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <div class="container">
+      <div class="section-label">Projects</div>
+      <h2 class="section-title">What I've Built</h2>
+      <div class="project-grid">
+
+        <a href="https://github.com/naveenkumarbaskaran/AgentForge" class="project-card" target="_blank">
+          <h3>AgentForge</h3>
+          <p>Production-grade enterprise AI agent framework with ReAct, PEOS, and HITL patterns. Built-in tool registry, memory, and streaming.</p>
+          <div class="project-tags">
+            <span class="tag">AI Agents</span>
+            <span class="tag tag-orange">Framework</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/PEOSGraph" class="project-card" target="_blank">
+          <h3>PEOSGraph</h3>
+          <p>Plan-Execute-Observe-Synthesize architecture as a composable LangGraph state machine. Used in SAP maintenance agents.</p>
+          <div class="project-tags">
+            <span class="tag tag-pink">LangGraph</span>
+            <span class="tag">PEOS</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/NeuralHive" class="project-card" target="_blank">
+          <h3>NeuralHive</h3>
+          <p>Multi-agent orchestration supporting supervisor, router, and swarm topologies via shared message bus.</p>
+          <div class="project-tags">
+            <span class="tag tag-cyan">Multi-Agent</span>
+            <span class="tag">Orchestration</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/OData-MCP-Server" class="project-card" target="_blank">
+          <h3>OData MCP Server</h3>
+          <p>MCP server exposing any OData V2/V4 service as AI tools. Auto-discovers entities from $metadata.</p>
+          <div class="project-tags">
+            <span class="tag tag-green">MCP</span>
+            <span class="tag tag-orange">SAP OData</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/TokenShield" class="project-card" target="_blank">
+          <h3>TokenShield</h3>
+          <p>Real-time token cost monitoring and budget enforcement middleware for LLM applications.</p>
+          <div class="project-tags">
+            <span class="tag tag-green">Cost Control</span>
+            <span class="tag">LLM Ops</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/A2A-Kit" class="project-card" target="_blank">
+          <h3>A2A-Kit</h3>
+          <p>Agent-to-Agent protocol toolkit for multi-agent communication, discovery, and task delegation.</p>
+          <div class="project-tags">
+            <span class="tag tag-pink">A2A Protocol</span>
+            <span class="tag tag-cyan">SDK</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/K8s-Copilot-MCP" class="project-card" target="_blank">
+          <h3>K8s Copilot MCP</h3>
+          <p>Kubernetes cluster management via AI assistants. Pods, deployments, logs — all through natural language.</p>
+          <div class="project-tags">
+            <span class="tag tag-green">MCP</span>
+            <span class="tag tag-cyan">Kubernetes</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/DeepCruise" class="project-card" target="_blank">
+          <h3>DeepCruise</h3>
+          <p>Adaptive cruise control using deep reinforcement learning — PPO, DQN, and custom reward shaping.</p>
+          <div class="project-tags">
+            <span class="tag tag-orange">Deep RL</span>
+            <span class="tag">Autonomous</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/ODataAgent" class="project-card" target="_blank">
+          <h3>ODataAgent</h3>
+          <p>Turn any OData service into an AI-queryable tool — zero boilerplate, automatic schema introspection.</p>
+          <div class="project-tags">
+            <span class="tag">OData</span>
+            <span class="tag tag-green">AI Tools</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/SwarmLab" class="project-card" target="_blank">
+          <h3>SwarmLab</h3>
+          <p>Swarm intelligence simulation — PSO, ACO, Firefly, and hybrid optimization algorithms with visualization.</p>
+          <div class="project-tags">
+            <span class="tag tag-orange">Optimization</span>
+            <span class="tag">Simulation</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/PromptForge" class="project-card" target="_blank">
+          <h3>PromptForge</h3>
+          <p>Enterprise prompt engineering toolkit — version control, A/B testing, compression, and evaluation.</p>
+          <div class="project-tags">
+            <span class="tag tag-pink">Prompts</span>
+            <span class="tag">Engineering</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/naveenkumarbaskaran/AgentGuard" class="project-card" target="_blank">
+          <h3>AgentGuard</h3>
+          <p>Safety guardrails for AI agents — input validation, output filtering, and execution boundary enforcement.</p>
+          <div class="project-tags">
+            <span class="tag tag-green">Safety</span>
+            <span class="tag">Guardrails</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Articles -->
+  <section>
+    <div class="container">
+      <div class="section-label">Writing</div>
+      <h2 class="section-title">Latest Articles</h2>
+      <div class="article-list">
+
+        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
+          <h4>Why Your AI Agent Needs a Plan-Execute-Observe Loop</h4>
+          <span>Mar 2026</span>
+        </a>
+
+        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
+          <h4>Building MCP Servers That Actually Work in Production</h4>
+          <span>Apr 2026</span>
+        </a>
+
+        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
+          <h4>Dynamic Tool Binding Saved Us 60% on Token Costs</h4>
+          <span>Mar 2026</span>
+        </a>
+
+        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
+          <h4>Multi-Agent Orchestration: Supervisor vs. Swarm vs. Router</h4>
+          <span>Mar 2026</span>
+        </a>
+
+        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
+          <h4>Stop Building Demo Agents — Here's What Production Actually Needs</h4>
+          <span>Apr 2026</span>
+        </a>
+
+        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
+          <h4>I Mass-Produced 14 GitHub Repos in One Weekend with Copilot</h4>
+          <span>Apr 2026</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Tech Stack -->
+  <section>
+    <div class="container">
+      <div class="section-label">Stack</div>
+      <h2 class="section-title">Technologies I Work With</h2>
+      <div class="tech-grid">
+        <div class="tech-item">Python</div>
+        <div class="tech-item">LangChain</div>
+        <div class="tech-item">LangGraph</div>
+        <div class="tech-item">OpenAI / GPT-4</div>
+        <div class="tech-item">Claude / Anthropic</div>
+        <div class="tech-item">MCP Protocol</div>
+        <div class="tech-item">A2A Protocol</div>
+        <div class="tech-item">SAP OData</div>
+        <div class="tech-item">Kubernetes</div>
+        <div class="tech-item">Docker</div>
+        <div class="tech-item">FastAPI</div>
+        <div class="tech-item">PyTorch</div>
+        <div class="tech-item">BTP / Kyma</div>
+        <div class="tech-item">GitHub Actions</div>
+        <div class="tech-item">Grafana</div>
+        <div class="tech-item">Confluence API</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>
+        <a href="https://github.com/naveenkumarbaskaran">GitHub</a> &middot;
+        <a href="https://medium.com/@naveenkb142">Medium</a> &middot;
+        <a href="https://linkedin.com/in/naveenkumarbaskaran">LinkedIn</a>
+      </p>
+      <p style="margin-top: 12px;">&copy; 2026 Naveen Kumar Baskaran</p>
+    </div>
+  </footer>
+
+</body>
+</html>
