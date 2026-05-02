@@ -3,455 +3,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Naveen Kumar Baskaran — AI Agent Engineer</title>
-  <meta name="description" content="AI Agent Engineer building production-grade LLM systems, MCP servers, and multi-agent orchestration frameworks.">
+  <title>Naveen Kumar Baskaran — AI Agent Engineer & SAP Developer</title>
+  <meta name="description" content="Senior SAP Developer & AI/ML Engineer building production-grade LLM systems, multi-agent orchestration, and MCP integrations for enterprise platforms.">
+  <meta name="keywords" content="AI Agent Engineer, SAP Developer, LLM, MCP, LangGraph, Agentic AI, SAP BTP, Kyma">
+  <meta property="og:title" content="Naveen Kumar Baskaran — AI Agent Engineer">
+  <meta property="og:description" content="8+ years building scalable enterprise AI and SAP solutions. PhD researcher in ML & Photonics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://naveenkumarbaskaran.github.io">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0a;
-      --bg-card: #111111;
-      --bg-card-hover: #1a1a1a;
+      --bg: #050505;
+      --bg-subtle: #0a0a0a;
+      --bg-card: #0f0f0f;
+      --bg-card-hover: #161616;
       --text: #e4e4e7;
-      --text-muted: #71717a;
+      --text-secondary: #a1a1aa;
+      --text-muted: #52525b;
       --accent: #6366f1;
       --accent-light: #818cf8;
-      --border: #27272a;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --border: #1c1c1e;
+      --border-hover: #2a2a2e;
       --green: #22c55e;
       --orange: #f97316;
       --cyan: #06b6d4;
       --pink: #ec4899;
+      --red: #ef4444;
+      --yellow: #eab308;
+      --purple: #a855f7;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-
-    /* Hero */
-    .hero {
-      padding: 80px 0 60px;
-      text-align: center;
+    /* ─── Nav ─── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(5,5,5,0.8);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
     }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 15px; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -0.3px; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
 
+    /* ─── Hero ─── */
+    .hero { padding: 140px 0 80px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; z-index: 1; display: flex; align-items: center; gap: 48px; }
+    .hero-text { flex: 1; }
+    .hero-photo {
+      width: 200px; height: 200px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+      border: 3px solid var(--border); box-shadow: 0 0 60px var(--accent-glow);
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
     .hero-badge {
-      display: inline-block;
-      padding: 6px 16px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      font-size: 13px;
-      color: var(--accent-light);
-      margin-bottom: 24px;
-      letter-spacing: 0.5px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border: 1px solid var(--border); border-radius: 20px;
+      font-size: 12px; color: var(--accent-light); margin-bottom: 28px;
+      letter-spacing: 0.5px; font-weight: 500;
     }
-
+    .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
     .hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      margin-bottom: 16px;
-      background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 52px; font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #71717a 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-
-    .hero p {
-      font-size: 18px;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      line-height: 1.7;
+    .hero-title-accent {
+      background: linear-gradient(135deg, var(--accent-light) 0%, var(--cyan) 100%) !important;
+      -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important;
     }
+    .hero-subtitle { font-size: 17px; color: var(--text-secondary); max-width: 640px; line-height: 1.8; margin-bottom: 12px; }
+    .hero-meta { font-size: 14px; color: var(--text-muted); margin-bottom: 36px; }
+    .hero-meta span { margin: 0 8px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
-    .hero-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    .hero-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 22px; border-radius: 10px; font-size: 14px; font-weight: 600;
+      text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; font-family: inherit;
     }
+    .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 0 20px var(--accent-glow); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--text-secondary); border: 1px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-card); }
+    .btn svg { width: 16px; height: 16px; }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
+    /* ─── Stats ─── */
+    .stats-strip {
+      display: grid; grid-template-columns: repeat(5,1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 60px 0;
     }
-    .btn-primary:hover { background: var(--accent-light); }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--text);
+    .stat { background: var(--bg-card); padding: 28px 20px; text-align: center; }
+    .stat-value {
+      font-size: 32px; font-weight: 800; letter-spacing: -1px;
+      background: linear-gradient(135deg, var(--text) 0%, var(--text-secondary) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .btn-outline:hover { border-color: var(--text-muted); background: var(--bg-card); }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
 
-    /* Section */
-    section { padding: 60px 0; }
+    /* ─── Sections ─── */
+    section { padding: 80px 0; }
+    .section-header { margin-bottom: 48px; }
+    .section-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--accent-light); margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; }
+    .section-title { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
+    .section-desc { font-size: 15px; color: var(--text-muted); margin-top: 8px; max-width: 560px; }
+    .divider { height: 1px; background: var(--border); }
 
-    .section-label {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--accent-light);
-      margin-bottom: 12px;
-    }
+    /* ─── Timeline ─── */
+    .timeline { position: relative; }
+    .timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px; background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%); }
+    .timeline-item { padding-left: 36px; padding-bottom: 48px; position: relative; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ''; position: absolute; left: -4px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+    .timeline-date { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-bottom: 6px; }
+    .timeline-role { font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+    .timeline-company { font-size: 14px; color: var(--accent-light); font-weight: 500; margin-bottom: 4px; }
+    .timeline-location { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .timeline-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+    .timeline-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; }
+    .timeline-desc li { margin-bottom: 6px; list-style: none; position: relative; padding-left: 16px; }
+    .timeline-desc li::before { content: '▸'; position: absolute; left: 0; color: var(--text-muted); }
 
-    .section-title {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 40px;
-    }
-
-    /* Tech stack */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
-    }
-
-    .tech-item {
-      padding: 14px 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      text-align: center;
-      transition: border-color 0.2s;
-    }
-    .tech-item:hover { border-color: var(--accent); }
-
-    /* Projects */
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 16px;
-    }
-
+    /* ─── Projects ─── */
+    .project-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
     .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s;
-      display: flex;
-      flex-direction: column;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px;
+      text-decoration: none; color: var(--text); transition: all 0.25s; display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
     }
-    .project-card:hover {
-      border-color: var(--accent);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
+    .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--cyan)); opacity: 0; transition: opacity 0.25s; }
+    .project-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .project-card:hover::before { opacity: 1; }
+    .project-icon { font-size: 24px; margin-bottom: 14px; }
+    .project-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+    .project-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; flex: 1; }
+    .project-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
+
+    .tag { font-size: 11px; padding: 3px 10px; border-radius: 6px; font-weight: 500; font-family: 'JetBrains Mono', monospace; }
+    .tag-default { background: rgba(99,102,241,0.1); color: var(--accent-light); }
+    .tag-green { background: rgba(34,197,94,0.1); color: var(--green); }
+    .tag-orange { background: rgba(249,115,22,0.1); color: var(--orange); }
+    .tag-cyan { background: rgba(6,182,212,0.1); color: var(--cyan); }
+    .tag-pink { background: rgba(236,72,153,0.1); color: var(--pink); }
+    .tag-purple { background: rgba(168,85,247,0.1); color: var(--purple); }
+    .tag-yellow { background: rgba(234,179,8,0.1); color: var(--yellow); }
+
+    /* ─── Articles ─── */
+    .article-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .article-card {
+      display: flex; align-items: flex-start; gap: 16px; padding: 20px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+      text-decoration: none; color: var(--text); transition: all 0.2s;
     }
+    .article-card:hover { border-color: var(--border-hover); background: var(--bg-card-hover); }
+    .article-num { font-size: 28px; font-weight: 800; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; line-height: 1; min-width: 36px; }
+    .article-content h4 { font-size: 14px; font-weight: 600; line-height: 1.5; margin-bottom: 6px; }
+    .article-content span { font-size: 12px; color: var(--text-muted); }
 
-    .project-card h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
+    /* ─── Education ─── */
+    .edu-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .edu-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; transition: border-color 0.2s; }
+    .edu-card:hover { border-color: var(--border-hover); }
+    .edu-degree { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .edu-field { font-size: 13px; color: var(--accent-light); margin-bottom: 8px; }
+    .edu-school { font-size: 13px; color: var(--text-secondary); }
+    .edu-year { font-size: 12px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; margin-top: 8px; }
+
+    /* ─── Certs ─── */
+    .certs-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; }
+    .cert-item { display: flex; align-items: center; gap: 12px; padding: 16px 20px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+    .cert-icon { font-size: 20px; min-width: 28px; text-align: center; }
+    .cert-text { font-size: 13px; font-weight: 500; }
+    .cert-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    /* ─── Publications ─── */
+    .pub-list { display: flex; flex-direction: column; gap: 12px; }
+    .pub-item { padding: 18px 22px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; display: flex; align-items: center; gap: 14px; }
+    .pub-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+    .pub-ieee { background: rgba(6,182,212,0.1); color: var(--cyan); }
+    .pub-patent { background: rgba(249,115,22,0.1); color: var(--orange); }
+    .pub-title { font-size: 14px; font-weight: 500; color: var(--text-secondary); }
+
+    /* ─── Stack ─── */
+    .stack-categories { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .stack-category h3 { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 12px; }
+    .stack-items { display: flex; gap: 8px; flex-wrap: wrap; }
+    .stack-item { padding: 8px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+    .stack-item:hover { border-color: var(--accent); color: var(--accent-light); }
+
+    /* ─── Contact ─── */
+    .contact-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .contact-card {
+      text-align: center; padding: 28px 20px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; text-decoration: none; color: var(--text); transition: all 0.2s;
     }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 20px var(--accent-glow); }
+    .contact-card svg { width: 24px; height: 24px; margin-bottom: 10px; fill: var(--text-muted); }
+    .contact-card:hover svg { fill: var(--accent-light); }
+    .contact-label { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .contact-value { font-size: 12px; color: var(--text-muted); }
 
-    .project-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      flex: 1;
+    /* ─── Footer ─── */
+    footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border); }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--accent-light); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 34px; letter-spacing: -1px; }
+      .hero-content { flex-direction: column-reverse; text-align: center; }
+      .hero-photo { width: 150px; height: 150px; }
+      .hero-actions { justify-content: center; }
+      .hero-subtitle { font-size: 15px; }
+      .stats-strip { grid-template-columns: repeat(3,1fr); }
+      .project-grid { grid-template-columns: repeat(2,1fr); }
+      .article-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: 1fr; }
+      .stack-categories { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: repeat(2,1fr); }
+      .nav-links { display: none; }
+      .section-title { font-size: 28px; }
     }
-
-    .project-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 16px;
-    }
-
-    .tag {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 12px;
-      background: rgba(99, 102, 241, 0.1);
-      color: var(--accent-light);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-    }
-
-    .tag-green { background: rgba(34, 197, 94, 0.1); color: var(--green); border-color: rgba(34, 197, 94, 0.2); }
-    .tag-orange { background: rgba(249, 115, 22, 0.1); color: var(--orange); border-color: rgba(249, 115, 22, 0.2); }
-    .tag-cyan { background: rgba(6, 182, 212, 0.1); color: var(--cyan); border-color: rgba(6, 182, 212, 0.2); }
-    .tag-pink { background: rgba(236, 72, 153, 0.1); color: var(--pink); border-color: rgba(236, 72, 153, 0.2); }
-
-    /* Articles */
-    .article-list { display: flex; flex-direction: column; gap: 12px; }
-
-    .article-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--text);
-      transition: all 0.2s;
-    }
-    .article-item:hover {
-      border-color: var(--accent);
-      background: var(--bg-card-hover);
-    }
-
-    .article-item h4 {
-      font-size: 15px;
-      font-weight: 500;
-    }
-
-    .article-item span {
-      font-size: 12px;
-      color: var(--text-muted);
-      white-space: nowrap;
-      margin-left: 16px;
-    }
-
-    /* Stats */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 48px;
-    }
-
-    .stat-card {
-      text-align: center;
-      padding: 24px 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .stat-num {
-      font-size: 36px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--accent-light), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* Footer */
-    footer {
-      padding: 40px 0;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
-    }
-
-    footer p {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    footer a { color: var(--accent-light); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* Divider */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 0;
-    }
-
-    /* Responsive */
-    @media (max-width: 640px) {
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .section-title { font-size: 24px; }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 28px; }
+      .stats-strip { grid-template-columns: repeat(2,1fr); }
+      .project-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">NKB<span>.</span></a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#articles">Articles</a>
+        <a href="#education">Education</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
   <!-- Hero -->
   <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="dot"></span> Pursuing Ph.D. in CS — ML &amp; Photonics</div>
+        <h1>Naveen Kumar<br><span class="hero-title-accent">Baskaran</span></h1>
+        <p class="hero-subtitle">
+          Senior SAP Developer &amp; AI/ML Engineer with 8+ years building scalable enterprise applications.
+          Currently designing production-grade <strong style="color:var(--text)">Agentic AI</strong> systems integrated with
+          SAP Joule and A2A protocol on BTP/Kyma — delivering token-optimized, scorecard-compliant
+          intelligent automation for Asset Management.
+        </p>
+        <p class="hero-meta">
+          Bengaluru, India <span>&middot;</span> SAP Labs India <span>&middot;</span> IEEE Member <span>&middot;</span> 5 Publications &amp; 1 Patent
+        </p>
+        <div class="hero-actions">
+          <a href="https://github.com/naveenkumarbaskaran" class="btn btn-primary" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://medium.com/@naveenkb142" class="btn btn-ghost" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            Medium
+          </a>
+          <a href="https://linkedin.com/in/iamnaveenkumarb" class="btn btn-ghost" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:naveenkb142@gmail.com" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/headshot.jpeg" alt="Naveen Kumar Baskaran">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="container">
+    <div class="stats-strip">
+      <div class="stat"><div class="stat-value">8+</div><div class="stat-label">Years Exp</div></div>
+      <div class="stat"><div class="stat-value">14</div><div class="stat-label">Open Source</div></div>
+      <div class="stat"><div class="stat-value">9+</div><div class="stat-label">Articles</div></div>
+      <div class="stat"><div class="stat-value">5</div><div class="stat-label">Publications</div></div>
+      <div class="stat"><div class="stat-value">1</div><div class="stat-label">Patent</div></div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <section id="experience">
     <div class="container">
-      <div class="hero-badge">Open to opportunities</div>
-      <h1>Naveen Kumar Baskaran</h1>
-      <p>AI Agent Engineer building production-grade LLM systems, multi-agent orchestration, and MCP integrations for enterprise platforms.</p>
-      <div class="hero-links">
-        <a href="https://github.com/naveenkumarbaskaran" class="btn-primary" target="_blank">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://medium.com/@naveenkb142" class="btn-outline" target="_blank">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-          Medium
-        </a>
-        <a href="https://linkedin.com/in/naveenkumarbaskaran" class="btn-outline" target="_blank">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
+      <div class="section-header">
+        <div class="section-label">// experience</div>
+        <h2 class="section-title">Where I've Worked</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2026 – Present</div>
+          <div class="timeline-role">Developer Specialist III</div>
+          <div class="timeline-company">SAP Labs India</div>
+          <div class="timeline-location">Bengaluru</div>
+          <div class="timeline-tags">
+            <span class="tag tag-default">Agentic AI</span><span class="tag tag-cyan">SAP Joule</span>
+            <span class="tag tag-purple">LLMs</span><span class="tag tag-green">RAG</span><span class="tag tag-orange">SAP BTP</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Designing production-grade Agentic AI solutions for SAP Asset Management with multi-agent architectures on BTP/Kyma</li>
+            <li>Engineered PEOS agent framework with dynamic tool binding — 60-80% token savings, sub-60s Joule-compliant responses</li>
+            <li>Built 20+ SAP OData API integrations for maintenance order analysis, equipment insights, and stock queries</li>
+            <li>Implemented HITL safeguards, response validation, and UI5 Integration Card rendering for Joule experiences</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Feb 2025 – Apr 2026</div>
+          <div class="timeline-role">Developer Specialist II</div>
+          <div class="timeline-company">SAP Labs India</div>
+          <div class="timeline-location">Bengaluru</div>
+          <div class="timeline-tags">
+            <span class="tag tag-default">Asset Management</span><span class="tag tag-cyan">Phase Model</span><span class="tag tag-green">UI5</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Architected Agentic AI solution for Asset Management in SAP Public Cloud using RAP, CDS, and Annotation Modeling</li>
+            <li>Built UI5 Fiori applications with Phase Model concepts and SAP IAM; collaborated on Maintenance Orders roadmap</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2024 – Jan 2025</div>
+          <div class="timeline-role">Developer Specialist I</div>
+          <div class="timeline-company">SAP Labs India</div>
+          <div class="timeline-location">Bengaluru</div>
+          <div class="timeline-tags">
+            <span class="tag tag-default">AI/ML</span><span class="tag tag-orange">MLOps</span><span class="tag tag-cyan">Data Science</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Resolved 200+ critical customer incidents across SAP PM, PS, PP, HR — boosted satisfaction by 20%</li>
+            <li>Led MLOps initiatives improving ML model performance by 15%; migrated to Deep Learning (LSTM, BERT)</li>
+            <li>Published research and presented at conferences, establishing thought leadership in AI/ML within SAP</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2022 – Mar 2024</div>
+          <div class="timeline-role">Developer Associate III</div>
+          <div class="timeline-company">SAP Labs India</div>
+          <div class="timeline-location">Bengaluru</div>
+          <div class="timeline-tags">
+            <span class="tag tag-default">Product Engineering</span><span class="tag tag-green">MRS</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Owned Multi Resource Scheduler end-to-end: patches, feature packs, and support with 100% uptime</li>
+            <li>Won ACE – Client Innovations Award for pioneering ML integration in the SAP MRS module</li>
+          </ul>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Nov 2018 – Jun 2022</div>
+          <div class="timeline-role">Senior Analyst → Software Engineer</div>
+          <div class="timeline-company">Accenture</div>
+          <div class="timeline-location">Bengaluru</div>
+          <div class="timeline-tags">
+            <span class="tag tag-default">SAP 1909</span><span class="tag tag-orange">IDOCs/ALE</span><span class="tag tag-pink">Adobe Forms</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Delivered SAP 1909 implementation for global multi-region client; 50+ RICEF developments in 1.5 years</li>
+            <li>Designed the Domestic Invoice form deployed on Go-Live Day 1; re-architected material master IDOC interface</li>
+            <li>Optimized critical ABAP programs by 50-60%; recognized as SME for IDOCs/ALE integration</li>
+            <li>Received ACE – Client &amp; Customer Category Award and Growth Catalyst Award</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- Stats -->
-  <section>
-    <div class="container">
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-num">14</div>
-          <div class="stat-label">Open Source Repos</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">9+</div>
-          <div class="stat-label">Technical Articles</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">4</div>
-          <div class="stat-label">MCP Servers</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years in Enterprise AI</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Projects -->
-  <section>
+  <section id="projects">
     <div class="container">
-      <div class="section-label">Projects</div>
-      <h2 class="section-title">What I've Built</h2>
+      <div class="section-header">
+        <div class="section-label">// projects</div>
+        <h2 class="section-title">Open Source</h2>
+        <p class="section-desc">Frameworks, tools, and servers I've built and maintain.</p>
+      </div>
       <div class="project-grid">
-
         <a href="https://github.com/naveenkumarbaskaran/AgentForge" class="project-card" target="_blank">
+          <div class="project-icon">🔥</div>
           <h3>AgentForge</h3>
-          <p>Production-grade enterprise AI agent framework with ReAct, PEOS, and HITL patterns. Built-in tool registry, memory, and streaming.</p>
-          <div class="project-tags">
-            <span class="tag">AI Agents</span>
-            <span class="tag tag-orange">Framework</span>
-          </div>
+          <p>Production-grade AI agent framework with ReAct, PEOS, HITL patterns, tool registry, memory management, and streaming.</p>
+          <div class="project-tags"><span class="tag tag-default">AI Agents</span><span class="tag tag-orange">Framework</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/PEOSGraph" class="project-card" target="_blank">
+          <div class="project-icon">🔀</div>
           <h3>PEOSGraph</h3>
-          <p>Plan-Execute-Observe-Synthesize architecture as a composable LangGraph state machine. Used in SAP maintenance agents.</p>
-          <div class="project-tags">
-            <span class="tag tag-pink">LangGraph</span>
-            <span class="tag">PEOS</span>
-          </div>
+          <p>Plan-Execute-Observe-Synthesize as a composable LangGraph state machine. Backbone of SAP maintenance agents.</p>
+          <div class="project-tags"><span class="tag tag-pink">LangGraph</span><span class="tag tag-default">PEOS</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/NeuralHive" class="project-card" target="_blank">
+          <div class="project-icon">🧠</div>
           <h3>NeuralHive</h3>
-          <p>Multi-agent orchestration supporting supervisor, router, and swarm topologies via shared message bus.</p>
-          <div class="project-tags">
-            <span class="tag tag-cyan">Multi-Agent</span>
-            <span class="tag">Orchestration</span>
-          </div>
+          <p>Multi-agent orchestration — supervisor, router, and swarm topologies with shared message bus and delegation.</p>
+          <div class="project-tags"><span class="tag tag-cyan">Multi-Agent</span><span class="tag tag-purple">Orchestration</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/OData-MCP-Server" class="project-card" target="_blank">
+          <div class="project-icon">⚡</div>
           <h3>OData MCP Server</h3>
-          <p>MCP server exposing any OData V2/V4 service as AI tools. Auto-discovers entities from $metadata.</p>
-          <div class="project-tags">
-            <span class="tag tag-green">MCP</span>
-            <span class="tag tag-orange">SAP OData</span>
-          </div>
+          <p>MCP server exposing any OData V2/V4 service as AI tools. Auto-discovers entities, handles SAP auth.</p>
+          <div class="project-tags"><span class="tag tag-green">MCP</span><span class="tag tag-orange">SAP OData</span></div>
         </a>
-
+        <a href="https://github.com/naveenkumarbaskaran/K8s-Copilot-MCP" class="project-card" target="_blank">
+          <div class="project-icon">☸️</div>
+          <h3>K8s Copilot MCP</h3>
+          <p>Kubernetes cluster management via AI assistants. Pods, deployments, logs — via natural language.</p>
+          <div class="project-tags"><span class="tag tag-green">MCP</span><span class="tag tag-cyan">Kubernetes</span></div>
+        </a>
+        <a href="https://github.com/naveenkumarbaskaran/Confluence-MCP" class="project-card" target="_blank">
+          <div class="project-icon">📘</div>
+          <h3>Confluence MCP</h3>
+          <p>MCP server for Confluence wiki search and content retrieval. Query pages, spaces, and attachments.</p>
+          <div class="project-tags"><span class="tag tag-green">MCP</span><span class="tag tag-default">Confluence</span></div>
+        </a>
+        <a href="https://github.com/naveenkumarbaskaran/Grafana-Insights-MCP" class="project-card" target="_blank">
+          <div class="project-icon">📊</div>
+          <h3>Grafana Insights MCP</h3>
+          <p>MCP server for Grafana dashboard queries and alerting insights for observability.</p>
+          <div class="project-tags"><span class="tag tag-green">MCP</span><span class="tag tag-yellow">Grafana</span></div>
+        </a>
         <a href="https://github.com/naveenkumarbaskaran/TokenShield" class="project-card" target="_blank">
+          <div class="project-icon">🛡️</div>
           <h3>TokenShield</h3>
           <p>Real-time token cost monitoring and budget enforcement middleware for LLM applications.</p>
-          <div class="project-tags">
-            <span class="tag tag-green">Cost Control</span>
-            <span class="tag">LLM Ops</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-green">Cost Control</span><span class="tag tag-default">LLM Ops</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/A2A-Kit" class="project-card" target="_blank">
+          <div class="project-icon">🔗</div>
           <h3>A2A-Kit</h3>
           <p>Agent-to-Agent protocol toolkit for multi-agent communication, discovery, and task delegation.</p>
-          <div class="project-tags">
-            <span class="tag tag-pink">A2A Protocol</span>
-            <span class="tag tag-cyan">SDK</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-pink">A2A</span><span class="tag tag-cyan">Protocol</span></div>
         </a>
-
-        <a href="https://github.com/naveenkumarbaskaran/K8s-Copilot-MCP" class="project-card" target="_blank">
-          <h3>K8s Copilot MCP</h3>
-          <p>Kubernetes cluster management via AI assistants. Pods, deployments, logs — all through natural language.</p>
-          <div class="project-tags">
-            <span class="tag tag-green">MCP</span>
-            <span class="tag tag-cyan">Kubernetes</span>
-          </div>
-        </a>
-
         <a href="https://github.com/naveenkumarbaskaran/DeepCruise" class="project-card" target="_blank">
+          <div class="project-icon">🚗</div>
           <h3>DeepCruise</h3>
-          <p>Adaptive cruise control using deep reinforcement learning — PPO, DQN, and custom reward shaping.</p>
-          <div class="project-tags">
-            <span class="tag tag-orange">Deep RL</span>
-            <span class="tag">Autonomous</span>
-          </div>
+          <p>Adaptive cruise control via deep reinforcement learning — PPO, DQN, and custom reward shaping.</p>
+          <div class="project-tags"><span class="tag tag-orange">Deep RL</span><span class="tag tag-default">Autonomous</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/ODataAgent" class="project-card" target="_blank">
+          <div class="project-icon">🔗</div>
           <h3>ODataAgent</h3>
           <p>Turn any OData service into an AI-queryable tool — zero boilerplate, automatic schema introspection.</p>
-          <div class="project-tags">
-            <span class="tag">OData</span>
-            <span class="tag tag-green">AI Tools</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-default">OData</span><span class="tag tag-green">AI Tools</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/SwarmLab" class="project-card" target="_blank">
+          <div class="project-icon">🐝</div>
           <h3>SwarmLab</h3>
-          <p>Swarm intelligence simulation — PSO, ACO, Firefly, and hybrid optimization algorithms with visualization.</p>
-          <div class="project-tags">
-            <span class="tag tag-orange">Optimization</span>
-            <span class="tag">Simulation</span>
-          </div>
+          <p>Swarm intelligence simulation — PSO, ACO, Firefly, and hybrid optimization with visualization.</p>
+          <div class="project-tags"><span class="tag tag-yellow">Optimization</span><span class="tag tag-default">Simulation</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/PromptForge" class="project-card" target="_blank">
+          <div class="project-icon">✨</div>
           <h3>PromptForge</h3>
-          <p>Enterprise prompt engineering toolkit — version control, A/B testing, compression, and evaluation.</p>
-          <div class="project-tags">
-            <span class="tag tag-pink">Prompts</span>
-            <span class="tag">Engineering</span>
-          </div>
+          <p>Prompt engineering toolkit with version control, A/B testing, automatic optimization, and analytics.</p>
+          <div class="project-tags"><span class="tag tag-orange">Prompts</span><span class="tag tag-default">Engineering</span></div>
         </a>
-
         <a href="https://github.com/naveenkumarbaskaran/AgentGuard" class="project-card" target="_blank">
+          <div class="project-icon">🔒</div>
           <h3>AgentGuard</h3>
-          <p>Safety guardrails for AI agents — input validation, output filtering, and execution boundary enforcement.</p>
-          <div class="project-tags">
-            <span class="tag tag-green">Safety</span>
-            <span class="tag">Guardrails</span>
-          </div>
+          <p>Safety middleware for AI agents — prompt injection detection, output validation, and audit trails.</p>
+          <div class="project-tags"><span class="tag tag-green">Security</span><span class="tag tag-default">Safety</span></div>
         </a>
-
       </div>
     </div>
   </section>
@@ -459,42 +509,154 @@
   <div class="divider"></div>
 
   <!-- Articles -->
+  <section id="articles">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">// writing</div>
+        <h2 class="section-title">Technical Articles</h2>
+        <p class="section-desc">Deep dives on agent architecture, MCP servers, and enterprise AI.</p>
+      </div>
+      <div class="article-grid">
+        <a href="https://medium.com/@naveenkb142/why-your-ai-agent-needs-a-plan-execute-observe-loop-not-just-react-b40c4fddfe57" class="article-card" target="_blank">
+          <div class="article-num">01</div>
+          <div class="article-content">
+            <h4>Why Your AI Agent Needs a Plan-Execute-Observe Loop</h4>
+            <span>PEOS architecture &middot; Mar 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/building-mcp-servers-that-actually-work-in-production-c7bb51f4fda0" class="article-card" target="_blank">
+          <div class="article-num">02</div>
+          <div class="article-content">
+            <h4>Building MCP Servers That Actually Work in Production</h4>
+            <span>Model Context Protocol &middot; Apr 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/dynamic-tool-binding-saved-us-60-on-token-costs-heres-how-e72b3b4f0c45" class="article-card" target="_blank">
+          <div class="article-num">03</div>
+          <div class="article-content">
+            <h4>Dynamic Tool Binding Saved Us 60% on Token Costs</h4>
+            <span>Token optimization &middot; Mar 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/multi-agent-orchestration-supervisor-vs-swarm-vs-router-when-to-use-what-f82a15de4c00" class="article-card" target="_blank">
+          <div class="article-num">04</div>
+          <div class="article-content">
+            <h4>Multi-Agent Orchestration: Supervisor vs. Swarm vs. Router</h4>
+            <span>Architecture patterns &middot; Mar 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/stop-building-demo-agents-heres-what-production-actually-needs-a96f7e5b2350" class="article-card" target="_blank">
+          <div class="article-num">05</div>
+          <div class="article-content">
+            <h4>Stop Building Demo Agents — Here's What Production Needs</h4>
+            <span>Enterprise AI &middot; Apr 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/the-token-tax-why-most-ai-agents-burn-10x-more-tokens-than-they-should-f7e3b92a1c08" class="article-card" target="_blank">
+          <div class="article-num">06</div>
+          <div class="article-content">
+            <h4>The Token Tax: Why Most AI Agents Burn 10x More Than They Should</h4>
+            <span>Cost engineering &middot; Apr 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/human-in-the-loop-for-ai-agents-patterns-that-actually-work-in-enterprise-3b5c1e7d9a04" class="article-card" target="_blank">
+          <div class="article-num">07</div>
+          <div class="article-content">
+            <h4>Human-in-the-Loop for AI Agents: Patterns That Work in Enterprise</h4>
+            <span>HITL patterns &middot; Apr 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/i-mass-produced-14-github-repos-in-one-weekend-with-copilot-heres-what-i-learned-d842a7b6e512" class="article-card" target="_blank">
+          <div class="article-num">08</div>
+          <div class="article-content">
+            <h4>I Mass-Produced 14 GitHub Repos in One Weekend with Copilot</h4>
+            <span>Developer productivity &middot; Apr 2026</span>
+          </div>
+        </a>
+        <a href="https://medium.com/@naveenkb142/from-odata-to-ai-tools-how-mcp-bridges-sap-and-llms-b9a6f31c7e25" class="article-card" target="_blank">
+          <div class="article-num">09</div>
+          <div class="article-content">
+            <h4>From OData to AI Tools: How MCP Bridges SAP and LLMs</h4>
+            <span>SAP + AI integration &middot; Apr 2026</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Education -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">// education</div>
+        <h2 class="section-title">Academic Background</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Ph.D.</div>
+          <div class="edu-field">Computer Science &amp; Engineering</div>
+          <div class="edu-school">Jain University, Bengaluru</div>
+          <div class="edu-year">2023 – 2027 (Expected)</div>
+          <div style="margin-top:8px"><span class="tag tag-purple" style="font-size:10px">ML &amp; Photonics</span></div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">M.Tech</div>
+          <div class="edu-field">Computer Science — AI &amp; ML</div>
+          <div class="edu-school">Jain University, Bengaluru</div>
+          <div class="edu-year">2021 – 2023</div>
+          <div style="margin-top:8px"><span class="tag tag-yellow" style="font-size:10px">Top Academic Performer</span></div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-degree">B.Tech</div>
+          <div class="edu-field">Electronics &amp; Communication</div>
+          <div class="edu-school">PES University, Bengaluru</div>
+          <div class="edu-year">2015 – 2018</div>
+          <div style="margin-top:8px"><span class="tag tag-cyan" style="font-size:10px">Minor: Computer Science</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Certs & Awards -->
   <section>
     <div class="container">
-      <div class="section-label">Writing</div>
-      <h2 class="section-title">Latest Articles</h2>
-      <div class="article-list">
+      <div class="section-header">
+        <div class="section-label">// recognition</div>
+        <h2 class="section-title">Certifications &amp; Awards</h2>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-item"><div class="cert-icon">🏅</div><div><div class="cert-text">SAP Certified Development Specialist</div><div class="cert-sub">ABAP on HANA</div></div></div>
+        <div class="cert-item"><div class="cert-icon">🏅</div><div><div class="cert-text">SAP Certified Development Associate</div><div class="cert-sub">SAP Fiori Developer</div></div></div>
+        <div class="cert-item"><div class="cert-icon">🏆</div><div><div class="cert-text">ACE — Client Innovations Award</div><div class="cert-sub">ML integration in SAP MRS Module</div></div></div>
+        <div class="cert-item"><div class="cert-icon">🏆</div><div><div class="cert-text">ACE — Growth Catalyst Award</div><div class="cert-sub">Individual &amp; Team, Accenture</div></div></div>
+        <div class="cert-item"><div class="cert-icon">🏆</div><div><div class="cert-text">ACE — Client &amp; Customer Category</div><div class="cert-sub">Accenture Celebrates Excellence</div></div></div>
+        <div class="cert-item"><div class="cert-icon">📜</div><div><div class="cert-text">Certificate of Appreciation</div><div class="cert-sub">SAP Labs India — Dec 2024</div></div></div>
+        <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-text">Technology Architect Associate</div><div class="cert-sub">Accenture MTA Program</div></div></div>
+        <div class="cert-item"><div class="cert-icon">👨‍🏫</div><div><div class="cert-text">Mentor — SharpestMinds</div><div class="cert-sub">Coached 5+ professionals on AI/ML careers</div></div></div>
+      </div>
+    </div>
+  </section>
 
-        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
-          <h4>Why Your AI Agent Needs a Plan-Execute-Observe Loop</h4>
-          <span>Mar 2026</span>
-        </a>
+  <div class="divider"></div>
 
-        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
-          <h4>Building MCP Servers That Actually Work in Production</h4>
-          <span>Apr 2026</span>
-        </a>
-
-        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
-          <h4>Dynamic Tool Binding Saved Us 60% on Token Costs</h4>
-          <span>Mar 2026</span>
-        </a>
-
-        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
-          <h4>Multi-Agent Orchestration: Supervisor vs. Swarm vs. Router</h4>
-          <span>Mar 2026</span>
-        </a>
-
-        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
-          <h4>Stop Building Demo Agents — Here's What Production Actually Needs</h4>
-          <span>Apr 2026</span>
-        </a>
-
-        <a href="https://medium.com/@naveenkb142" class="article-item" target="_blank">
-          <h4>I Mass-Produced 14 GitHub Repos in One Weekend with Copilot</h4>
-          <span>Apr 2026</span>
-        </a>
-
+  <!-- Publications -->
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">// publications &amp; patent</div>
+        <h2 class="section-title">Research</h2>
+      </div>
+      <div class="pub-list">
+        <div class="pub-item"><span class="pub-type pub-patent">Patent</span><span class="pub-title">Implicitly Presenting Information of User's Point of Interest in Required Circumstances</span></div>
+        <div class="pub-item"><span class="pub-type pub-ieee">IEEE</span><span class="pub-title">Hyperparameter Tuning of CNNs using Nature-Inspired Metaheuristic Algorithms for Image Classification</span></div>
+        <div class="pub-item"><span class="pub-type pub-ieee">Paper</span><span class="pub-title">A Perspective Analysis of Optical Biosensors in Machine Learning Applications</span></div>
+        <div class="pub-item"><span class="pub-type pub-ieee">Paper</span><span class="pub-title">Thermal Image Fault Detection System for Electric Motors through ML-based Model</span></div>
+        <div class="pub-item"><span class="pub-type pub-ieee">Paper</span><span class="pub-title">Machine Learning Techniques for Optimization in Engineering Applications</span></div>
+        <div class="pub-item"><span class="pub-type pub-ieee">Paper</span><span class="pub-title">Biometric Authentication using Raspberry Pi based on Cloud and IoT</span></div>
       </div>
     </div>
   </section>
@@ -502,27 +664,91 @@
   <div class="divider"></div>
 
   <!-- Tech Stack -->
-  <section>
+  <section id="stack">
     <div class="container">
-      <div class="section-label">Stack</div>
-      <h2 class="section-title">Technologies I Work With</h2>
-      <div class="tech-grid">
-        <div class="tech-item">Python</div>
-        <div class="tech-item">LangChain</div>
-        <div class="tech-item">LangGraph</div>
-        <div class="tech-item">OpenAI / GPT-4</div>
-        <div class="tech-item">Claude / Anthropic</div>
-        <div class="tech-item">MCP Protocol</div>
-        <div class="tech-item">A2A Protocol</div>
-        <div class="tech-item">SAP OData</div>
-        <div class="tech-item">Kubernetes</div>
-        <div class="tech-item">Docker</div>
-        <div class="tech-item">FastAPI</div>
-        <div class="tech-item">PyTorch</div>
-        <div class="tech-item">BTP / Kyma</div>
-        <div class="tech-item">GitHub Actions</div>
-        <div class="tech-item">Grafana</div>
-        <div class="tech-item">Confluence API</div>
+      <div class="section-header">
+        <div class="section-label">// stack</div>
+        <h2 class="section-title">Technologies</h2>
+      </div>
+      <div class="stack-categories">
+        <div class="stack-category">
+          <h3>Languages</h3>
+          <div class="stack-items">
+            <div class="stack-item">Python</div><div class="stack-item">JavaScript</div><div class="stack-item">ABAP</div>
+            <div class="stack-item">Java</div><div class="stack-item">SQL</div><div class="stack-item">C++</div><div class="stack-item">Lua</div>
+          </div>
+        </div>
+        <div class="stack-category">
+          <h3>AI / ML</h3>
+          <div class="stack-items">
+            <div class="stack-item">LangChain</div><div class="stack-item">LangGraph</div><div class="stack-item">Agentic AI</div>
+            <div class="stack-item">RAG</div><div class="stack-item">Prompt Engineering</div><div class="stack-item">LSTM</div>
+            <div class="stack-item">BERT</div><div class="stack-item">PyTorch</div><div class="stack-item">MLOps</div>
+          </div>
+        </div>
+        <div class="stack-category">
+          <h3>Protocols &amp; SDKs</h3>
+          <div class="stack-items">
+            <div class="stack-item">MCP Protocol</div><div class="stack-item">A2A Protocol</div><div class="stack-item">SAP Joule</div>
+            <div class="stack-item">OData V2/V4</div><div class="stack-item">REST APIs</div><div class="stack-item">FastAPI</div>
+          </div>
+        </div>
+        <div class="stack-category">
+          <h3>SAP Stack</h3>
+          <div class="stack-items">
+            <div class="stack-item">ABAP on HANA</div><div class="stack-item">SAPUI5 / Fiori</div><div class="stack-item">RAP / CDS</div>
+            <div class="stack-item">AMDP</div><div class="stack-item">SAP BTP</div><div class="stack-item">Kyma</div>
+            <div class="stack-item">SAP AI Core</div><div class="stack-item">IDOC/ALE</div>
+          </div>
+        </div>
+        <div class="stack-category">
+          <h3>Cloud &amp; Infra</h3>
+          <div class="stack-items">
+            <div class="stack-item">Docker</div><div class="stack-item">Kubernetes</div><div class="stack-item">GitHub Actions</div>
+            <div class="stack-item">CI/CD</div><div class="stack-item">GCP</div><div class="stack-item">Firebase</div>
+          </div>
+        </div>
+        <div class="stack-category">
+          <h3>Practices</h3>
+          <div class="stack-items">
+            <div class="stack-item">System Design</div><div class="stack-item">Agile / Scrum</div><div class="stack-item">HITL</div>
+            <div class="stack-item">Technical Docs</div><div class="stack-item">Mentoring</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">// contact</div>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
+      <div class="contact-grid">
+        <a href="https://github.com/naveenkumarbaskaran" class="contact-card" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">naveenkumarbaskaran</div>
+        </a>
+        <a href="https://linkedin.com/in/iamnaveenkumarb" class="contact-card" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">iamnaveenkumarb</div>
+        </a>
+        <a href="https://medium.com/@naveenkb142" class="contact-card" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          <div class="contact-label">Medium</div>
+          <div class="contact-value">@naveenkb142</div>
+        </a>
+        <a href="mailto:naveenkb142@gmail.com" class="contact-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">naveenkb142@gmail.com</div>
+        </a>
       </div>
     </div>
   </section>
@@ -530,12 +756,12 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>
-        <a href="https://github.com/naveenkumarbaskaran">GitHub</a> &middot;
-        <a href="https://medium.com/@naveenkb142">Medium</a> &middot;
-        <a href="https://linkedin.com/in/naveenkumarbaskaran">LinkedIn</a>
+      <p style="margin-bottom:8px">
+        <a href="https://github.com/naveenkumarbaskaran">GitHub</a> &nbsp;&middot;&nbsp;
+        <a href="https://medium.com/@naveenkb142">Medium</a> &nbsp;&middot;&nbsp;
+        <a href="https://linkedin.com/in/iamnaveenkumarb">LinkedIn</a>
       </p>
-      <p style="margin-top: 12px;">&copy; 2026 Naveen Kumar Baskaran</p>
+      <p>&copy; 2026 Naveen Kumar Baskaran &nbsp;&middot;&nbsp; Built with HTML &amp; CSS</p>
     </div>
   </footer>
 
